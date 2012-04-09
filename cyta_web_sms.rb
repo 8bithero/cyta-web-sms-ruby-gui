@@ -53,6 +53,7 @@ class TheMainWindow < FXMainWindow
     end
 
     super(app, title, :width => w, :height => h)
+    
     @username  = FXDataTarget.new("")
     @password  = FXDataTarget.new("")
     @recipient = FXDataTarget.new("")
@@ -61,34 +62,20 @@ class TheMainWindow < FXMainWindow
     loginFrame = FXVerticalFrame.new(self, LAYOUT_CENTER_X|LAYOUT_CENTER_Y)
 
     FXLabel.new(loginFrame, "Username:" )
-    #FXTextField.new(loginFrame, 20, @username, FXDataTarget::ID_VALUE, TEXTFIELD_NORMAL|LAYOUT_FILL_X|LAYOUT_FILL_COLUMN)
-    #@userCombo = FXComboBox.new(loginFrame, 15, :opts => COMBOBOX_STATIC|FRAME_SUNKEN|FRAME_THICK)
-    #@userCombo.numVisible = 1
     FXTextField.new(loginFrame, 20, @username, FXDataTarget::ID_VALUE, TEXTFIELD_NORMAL|LAYOUT_FILL_X|LAYOUT_FILL_COLUMN)
-    #@username = FXText.new(sunkenFrame)
 
     FXLabel.new(loginFrame, "Password:" )
     FXTextField.new(loginFrame, 20, @password, FXDataTarget::ID_VALUE, TEXTFIELD_PASSWD|FRAME_SUNKEN|FRAME_THICK|LAYOUT_FILL_X|LAYOUT_FILL_COLUMN)
-    #@passCombo = FXComboBox.new(loginFrame, 15, :opts => COMBOBOX_STATIC|FRAME_SUNKEN|FRAME_THICK)
-    #@passCombo.numVisible = 1
-    #@password = FXText.new(sunkenFrame)
 
     FXLabel.new(loginFrame, "Recipient:" )
     FXTextField.new(loginFrame, 20, @recipient, FXDataTarget::ID_VALUE, TEXTFIELD_NORMAL|LAYOUT_FILL_X|LAYOUT_FILL_COLUMN)
-    #@toCombo = FXComboBox.new(loginFrame, 15, :opts => COMBOBOX_STATIC|FRAME_SUNKEN|FRAME_THICK)
-    #@toCombo.numVisible = 1
-    #@recipient = FXText.new(sunkenFrame)
 
     FXLabel.new(loginFrame, "Message")
- #   sunkenFrame = FXHorizontalFrame.new(loginFrame, FRAME_SUNKEN|FRAME_THICK)
     sunkenFrame = FXHorizontalFrame.new(loginFrame, FRAME_SUNKEN|FRAME_THICK|LAYOUT_FILL_X|LAYOUT_FILL_COLUMN)
     @message = FXText.new(sunkenFrame, :opts => LAYOUT_FILL_X|LAYOUT_FILL_COLUMN)
 
     loginBtn = FXButton.new(loginFrame, "Send SMS", :opts => BUTTON_NORMAL|LAYOUT_CENTER_X|LAYOUT_CENTER_Y)
-    #loginBtn.connect(SEL_COMMAND, method(:loginAndSend))
-    
     loginBtn.connect(SEL_COMMAND) do
-    #  @message = "hello"
       loginAndSend()
     end
   end
