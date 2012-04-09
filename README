@@ -1,0 +1,7 @@
+An FXRuby GUI interface build around the cyta-web-sms-ruby-wrapper.
+
+Enter username, password as created on http://www.cytamobile-vodafone.com/
+
+Recipients must be added in the format 99xxxxxx and only one recipient at a time.
+
+Message length is limited to the 576 characters.
